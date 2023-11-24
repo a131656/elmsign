@@ -5,7 +5,7 @@
 #切换linux格式 dos2unix elmsign.sh
 #pwd
 #read -p "请输入端口号（默认80）：" setport
-#[ -z $setport ] && setport=80
+#[ -z $setport ] && setport=8088
 setport=80
 if grep -q "api\.94wan\.fun" /etc/hosts; then
     sed -i -E "s/(api\.94wan\.fun[[:space:]]+127\.0\.0\.1)[0-9]+/\1/g" /etc/hosts
@@ -28,7 +28,7 @@ fi
 
 download_elm(){
 echo "开始下载elm二进制文件到$PWD/elmsign目录"
-curl -# -o $PWD/elmsign/sign-$_ftype --create-dirs https://ghproxy.com/https://github.com/pingxian/elmsign/releases/download/v1.0.0/sign-$_ftype
+curl -# -o $PWD/elmsign/sign-$_ftype --create-dirs http://aaa.lulumian.tk/https://github.com/pingxian/elmsign/releases/download/v1.0.0/sign-$_ftype
 echo "下载完成，如需重新下载或更新请先删除该文件"
 if [ -f "$PWD/elmsign/sign-$_ftype" ]; then
     echo "$PWD/elmsign/sign-$_ftype"
